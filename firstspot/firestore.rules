@@ -1,0 +1,23 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /stories/{id} {
+      // anyone can read the news
+      allow read: if true;
+
+      // signed-in people can publish, as themselves
+      allow create: if request.auth != null
+        && request.resource.data.author.uid == request.auth.uid
+        && request.resource.data.title is string
+        && request.resource.data.title.size() > 0
+        && request.resource.data.title.size() <= 140;
+
+      // only the author can change or delete their story (including pushing live data)
+      allow update: if request.auth != null
+        && resource.data.author.uid == request.auth.uid
+        && request.resource.data.author.uid == resource.data.author.uid;
+      allow delete: if request.auth != null
+        && resource.data.author.uid == request.auth.uid;
+    }
+  }
+}
