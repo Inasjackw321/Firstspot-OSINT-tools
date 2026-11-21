@@ -177,3 +177,58 @@ footer{padding-top:80px}
 @keyframes ca{0%,2%{opacity:0}5%,30%{opacity:1}33%,100%{opacity:0}}
 @keyframes cb{0%,35%{opacity:0}38%,63%{opacity:1}66%,100%{opacity:0}}
 @keyframes cc{0%,68%{opacity:0}71%,96%{opacity:1}99%,100%{opacity:0}}
+
+/* ---- polish v4 ---- */
+:root{--bg:#07080c}
+body{background:var(--bg)}
+.aurora{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.aurora i{position:absolute;width:55vmax;height:55vmax;border-radius:50%;filter:blur(90px);opacity:.28}
+.aurora i:first-child{background:#2a6bff;left:-18vmax;top:-26vmax;animation:drift1 22s ease-in-out infinite alternate}
+.aurora i:last-child{background:#ff8a3d;right:-24vmax;top:18vmax;opacity:.16;animation:drift2 26s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate(14vmax,10vmax) scale(1.15)}}
+@keyframes drift2{to{transform:translate(-12vmax,-8vmax) scale(1.2)}}
+
+.top{display:flex;align-items:center;justify-content:space-between}
+.hero{padding-top:96px;padding-bottom:64px}
+h1{font-size:clamp(2.4rem,7.5vw,4.6rem);line-height:1.04;letter-spacing:-.035em}
+h1 .w:nth-child(3){background:linear-gradient(90deg,#5fd8ff,#8aa4ff 55%,#ffb23e);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:1.15rem;margin-top:16px}
+
+/* follow button */
+.follow{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:999px;background:#f3f5fa;color:#07080c;font-weight:600;font-size:.95rem;text-decoration:none;isolation:isolate;transition:transform .2s,box-shadow .3s}
+.follow svg{width:16px;height:16px;fill:currentColor;transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.follow::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,transparent 30%,#5fd8ff88 50%,transparent 70%);transform:translateX(-120%);animation:sheen 4.5s ease-in-out infinite}
+@keyframes sheen{0%,55%{transform:translateX(-120%)}85%,100%{transform:translateX(120%)}}
+.follow:hover{transform:translateY(-2px);box-shadow:0 10px 30px -8px #5fd8ffaa}
+.follow:hover svg{transform:rotate(360deg) scale(1.1)}
+.follow:active{transform:scale(.97)}
+.follow:focus-visible,.ghost:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.follow.sm{padding:9px 16px;font-size:.85rem;opacity:0;animation:pop .8s .7s forwards}
+.follow.sm svg{width:13px;height:13px}
+.cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:30px;opacity:0;animation:rise .8s .8s cubic-bezier(.2,.7,.2,1) forwards}
+.ghost{color:var(--text);text-decoration:none;padding:13px 20px;border:1px solid var(--line);border-radius:999px;font-size:.95rem;transition:border-color .25s,background .25s}
+.ghost:hover{border-color:#5a6275;background:#ffffff0a}
+.ghost b{display:inline-block;font-weight:400;animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(3px)}}
+
+.kicker{max-width:960px;margin:0 auto 18px;padding:0 24px;font:600 .75rem/1 ui-monospace,Menlo,monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);position:relative;z-index:1}
+
+/* cards as soft glass panels */
+.card{border:1px solid var(--line);border-radius:20px;padding:16px 16px 22px;background:linear-gradient(180deg,#10121a 0%,#0b0c12 100%);box-shadow:0 30px 60px -40px #000;transition:border-color .3s,box-shadow .4s}
+.s2:hover{border-color:#2c5f73;box-shadow:0 30px 70px -30px #5fd8ff55}
+.s1:hover{border-color:#6b4a22;box-shadow:0 30px 70px -30px #ffb23e44}
+.frame{border-radius:12px}
+.body{padding:0 8px}
+.tag{display:inline-block;padding:4px 10px;border:1px solid var(--line);border-radius:99px;font-size:.68rem}
+.s2 .tag{color:#7fdcff;border-color:#1e4a5a}.s1 .tag{color:#ffc46b;border-color:#5a3d17}
+.body h2{font-size:1.4rem;letter-spacing:-.01em}
+.dl{border-radius:12px}
+
+.features{margin-top:120px}
+.features h2{font-size:2rem;letter-spacing:-.02em}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:1px solid var(--line);margin-top:90px;padding-top:28px}
+footer a{color:var(--text);text-decoration:none;border-bottom:1px solid var(--line);transition:border-color .25s}
+footer a:hover{border-color:#5fd8ff}
+@media (max-width:480px){.follow.sm span{display:none}.follow.sm{padding:10px 12px}}
+footer{position:relative;border-top:0}
+footer::before{content:"";position:absolute;top:0;left:24px;right:24px;height:1px;background:var(--line)}

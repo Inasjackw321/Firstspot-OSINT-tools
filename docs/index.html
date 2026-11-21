@@ -7,22 +7,25 @@
   <meta name="description" content="Firstspot: open-source satellite OSINT tools built on Sentinel data.">
   <link rel="icon" type="image/png" sizes="64x64" href="img/favicon-64.png">
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
   <div class="glow" aria-hidden="true"></div>
+  <div class="aurora" aria-hidden="true"><i></i><i></i></div>
   <div class="progress" aria-hidden="true"></div>
-  <header class="top"><a class="brand" href="#"><img class="logo" src="img/logo.png" alt="" width="40" height="40"><span>Firstspot</span></a></header>
+  <header class="top"><a class="brand" href="#"><img class="logo" src="img/logo.png" alt="" width="40" height="40"><span>Firstspot</span></a><a class="follow sm" href="https://x.com/Kaldockhi" target="_blank" rel="noopener noreferrer" aria-label="Follow @Kaldockhi on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span>Follow</span></a></header>
 
   <main>
     <section class="hero">
       <h1><span class="w">Satellite</span> <span class="w">OSINT</span> <span class="w">tools.</span></h1>
       <p class="lead">Small tools that turn free Sentinel data into answers.</p>
     <p class="rotor">Spot <span id="rot">ships</span><i class="caret"></i></p>
+    <div class="cta"><a class="follow" href="https://x.com/Kaldockhi" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span>Follow @Kaldockhi</span></a><a class="ghost" href="#tools">Browse tools <b>↓</b></a></div>
     </section>
 
     <div class="marquee" aria-hidden="true"><div class="track"><span>SENTINEL-1</span><span>SAR</span><span>SENTINEL-2</span><span>OPTICAL</span><span>SHIPS</span><span>INTERFERENCE</span><span>OPEN DATA</span><span>OSINT</span><span>SENTINEL-1</span><span>SAR</span><span>SENTINEL-2</span><span>OPTICAL</span><span>SHIPS</span><span>INTERFERENCE</span><span>OPEN DATA</span><span>OSINT</span></div></div>
 
+    <p class="kicker">Tools</p>
     <section id="tools" class="tools">
       <article class="card s2 reveal">
         <div class="frame cyan"><div class="zoomer" style="--x:.5;--y:.48;--z:1.8"><img class="viz ship-img" src="img/ship.png" alt="Sentinel-2 view of a vessel with measured length 136 m"><svg class="hl" viewBox="0 0 100 75" aria-hidden="true"><path class="dim" fill-rule="evenodd" d="M0 0H100V75H0Z M37 24H63V49H37Z"/><rect class="draw" pathLength="100" x="37" y="24" width="26" height="25" rx="1"/></svg></div><i class="scan"></i><span class="chip">TARGET · 136 m</span></div>
@@ -67,8 +70,8 @@
   <section class="features"><h2 class="reveal">Features</h2><ul><li class="feat reveal"><span class="num">01</span><h3>Free satellite data</h3><p>Built on open Copernicus Sentinel imagery. No paid feeds, no accounts.</p></li><li class="feat reveal"><span class="num">02</span><h3>Ship detection</h3><p>Finds vessels in optical scenes and measures their length.</p></li><li class="feat reveal"><span class="num">03</span><h3>Track across passes</h3><p>Follow the same ship between satellite visits.</p></li><li class="feat reveal"><span class="num">04</span><h3>Interference mapping</h3><p>Spots RFI streaks in radar and fixes the likely source area.</p></li><li class="feat reveal"><span class="num">05</span><h3>Sees through cloud</h3><p>Sentinel-1 radar works day and night, whatever the weather.</p></li><li class="feat reveal"><span class="num">06</span><h3>Export anywhere</h3><p>GeoJSON and CSV, ready for QGIS, Google Earth or your own scripts.</p></li></ul></section>
   </main>
 
-  <footer>Prototype · Built on free Copernicus Sentinel data</footer>
+  <footer><span>Prototype · Built on free Copernicus Sentinel data</span><a href="https://x.com/Kaldockhi" target="_blank" rel="noopener noreferrer">@Kaldockhi on X ↗</a></footer>
   <div id="toast" role="status" aria-live="polite"></div>
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>
