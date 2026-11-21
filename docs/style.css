@@ -9,10 +9,10 @@ h1{font-size:clamp(2rem,6vw,3.2rem);line-height:1.1;letter-spacing:-.02em;font-w
 .lead{color:var(--muted);margin-top:12px;max-width:480px}
 .tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px}
 .card{border-top:1px solid var(--line);padding-top:24px}
-.viz{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px;margin-bottom:22px;transition:opacity .3s}
+.viz{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .ship-img{object-position:center}
 .rfi-img{object-position:20% 60%}
-.card:hover .viz{opacity:.88}
+.card:hover .viz{transform:scale(1.07)}
 .tag{font-size:.75rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
 .body h2{font-size:1.3rem;font-weight:600;margin:6px 0 8px}
 .body p{color:var(--muted)}
@@ -59,3 +59,40 @@ footer{color:var(--muted);font-size:.85rem;padding-top:60px;padding-bottom:48px}
 #toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,40px);opacity:0;background:#15171e;border:1px solid var(--line);padding:11px 16px;border-radius:8px;font-size:.9rem;transition:.35s;pointer-events:none;max-width:90vw;text-align:center}
 #toast.show{transform:translate(-50%,0);opacity:1}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}}
+
+/* ---- motion layer ---- */
+.glow{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,30%),#5b7cff14,transparent 70%)}
+.top,.hero,.tools,footer{position:relative;z-index:1}
+.w{display:inline-block;opacity:0;transform:translateY(.6em);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+.w:nth-child(2){animation-delay:.12s}.w:nth-child(3){animation-delay:.24s}
+.lead{opacity:0;animation:rise .8s .45s cubic-bezier(.2,.7,.2,1) forwards}
+.rotor{margin-top:18px;font-size:1.15rem;opacity:0;animation:rise .8s .6s forwards}
+#rot{color:#7fd8ff;transition:opacity .3s,transform .3s;display:inline-block}
+#rot.out{opacity:0;transform:translateY(-.4em)}
+.caret{display:inline-block;width:2px;height:1.1em;background:var(--text);margin-left:4px;vertical-align:-.15em;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+@keyframes rise{to{opacity:1;transform:none}}
+
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s,transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal:nth-child(2){transition-delay:.15s}
+.card{transform-style:preserve-3d;will-change:transform}
+.card.in.tilt{transition:transform .12s linear}
+
+.frame{position:relative;overflow:hidden;border-radius:6px;margin-bottom:22px;background:#000}
+.frame .viz{margin:0;border-radius:0}
+.frame.cyan{--c:#5fd8ff}.frame.amber{--c:#ffb23e}
+.scan{position:absolute;left:0;right:0;top:-10%;height:28%;background:linear-gradient(180deg,transparent,color-mix(in srgb,var(--c) 28%,transparent),transparent);border-bottom:1px solid var(--c);animation:scan 4.5s ease-in-out infinite;pointer-events:none}
+.frame.amber .scan{animation-delay:1.2s}
+@keyframes scan{0%{top:-30%}100%{top:100%}}
+.ping{position:absolute;width:14px;height:14px;margin:-7px 0 0 -7px;border:1.5px solid var(--c);border-radius:50%;pointer-events:none}
+.ping::before,.ping::after{content:"";position:absolute;inset:-1.5px;border:1.5px solid var(--c);border-radius:50%;animation:pulse 2.2s ease-out infinite}
+.ping::after{animation-delay:1.1s}
+@keyframes pulse{to{transform:scale(4.5);opacity:0}}
+.chip{position:absolute;left:10px;bottom:10px;font:600 .68rem/1 ui-monospace,Menlo,monospace;letter-spacing:.08em;color:var(--c);background:#000b;padding:6px 8px;border:1px solid var(--c);border-radius:4px;animation:blink 2.4s steps(2) infinite}
+.dl{animation:none}
+.dl-ship:not(.busy):not(.done) .boat{animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-2px) rotate(-5deg)}}
+.dl-rfi:not(.busy):not(.done) .sig{animation:flick 3.2s steps(1) infinite}
+@keyframes flick{0%,86%,100%{transform:none}90%{transform:translate(2px,-1px) skewX(12deg)}94%{transform:translate(-2px,1px)}}
+.dl-ship:hover .boat{animation:rock 1.2s ease-in-out infinite!important}

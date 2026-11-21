@@ -8,17 +8,19 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="glow" aria-hidden="true"></div>
   <header class="top"><a class="brand" href="#">Firstspot</a></header>
 
   <main>
     <section class="hero">
-      <h1>Satellite OSINT tools.</h1>
+      <h1><span class="w">Satellite</span> <span class="w">OSINT</span> <span class="w">tools.</span></h1>
       <p class="lead">Small tools that turn free Sentinel data into answers.</p>
+    <p class="rotor">Spot <span id="rot">ships</span><i class="caret"></i></p>
     </section>
 
     <section id="tools" class="tools">
-      <article class="card s2">
-        <img class="viz ship-img" src="img/ship.png" alt="Sentinel-2 view of a vessel with measured length 136 m">
+      <article class="card s2 reveal">
+        <div class="frame cyan"><img class="viz ship-img" src="img/ship.png" alt="Sentinel-2 view of a vessel with measured length 136 m"><i class="scan"></i><i class="ping" style="left:48%;top:50%"></i><span class="chip">TARGET · 136 m</span></div>
         <div class="body">
           <span class="tag">Sentinel-2 · Optical</span>
           <h2>Sentinel 2 Ship Tracker</h2>
@@ -37,8 +39,8 @@
         </div>
       </article>
 
-      <article class="card s1">
-        <img class="viz rfi-img" src="img/interference.webp" alt="Satellite view of a coastline with two interference bearing lines crossing">
+      <article class="card s1 reveal">
+        <div class="frame amber"><img class="viz rfi-img" src="img/interference.webp" alt="Satellite view of a coastline with two interference bearing lines crossing"><i class="scan"></i><i class="ping" style="left:18.5%;top:68%"></i><span class="chip">SOURCE · FIX</span></div>
         <div class="body">
           <span class="tag">Sentinel-1 · Radar</span>
           <h2>Sentinel 1 Interference Detector</h2>
