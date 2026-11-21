@@ -12,7 +12,7 @@ h1{font-size:clamp(2rem,6vw,3.2rem);line-height:1.1;letter-spacing:-.02em;font-w
 .viz{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .ship-img{object-position:center}
 .rfi-img{object-position:20% 60%}
-.card:hover .viz{transform:scale(1.07)}
+
 .tag{font-size:.75rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
 .body h2{font-size:1.3rem;font-weight:600;margin:6px 0 8px}
 .body p{color:var(--muted)}
@@ -96,3 +96,15 @@ footer{color:var(--muted);font-size:.85rem;padding-top:60px;padding-bottom:48px}
 .dl-rfi:not(.busy):not(.done) .sig{animation:flick 3.2s steps(1) infinite}
 @keyframes flick{0%,86%,100%{transform:none}90%{transform:translate(2px,-1px) skewX(12deg)}94%{transform:translate(-2px,1px)}}
 .dl-ship:hover .boat{animation:rock 1.2s ease-in-out infinite!important}
+
+/* ---- zoom + highlight demo ---- */
+.zoomer{position:relative;transform-origin:0 0;animation:zoomdemo 8s cubic-bezier(.6,0,.3,1) infinite;animation-delay:var(--d,0s)}
+.hl{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.hl .dim{fill:#000;opacity:0;animation:dimdemo 8s infinite;animation-delay:var(--d,0s)}
+.hl .draw{fill:none;stroke:#5fd8ff;stroke-width:2.5;vector-effect:non-scaling-stroke;stroke-dasharray:100;stroke-dashoffset:100;animation:drawdemo 8s infinite;animation-delay:var(--d,0s)}
+.hl.red .draw{stroke:#ff3b3b}
+.zoomer{animation-delay:var(--d,0s)}
+.frame.amber .zoomer,.frame.amber .hl *{--d:2.5s}
+@keyframes zoomdemo{0%,14%{transform:translate(0,0) scale(1)}34%,70%{transform:translate(calc((.5 - var(--x) * var(--z)) * 100%),calc((.375 - var(--y) * var(--z)) * 75% * 1.3333)) scale(var(--z))}90%,100%{transform:translate(0,0) scale(1)}}
+@keyframes dimdemo{0%,30%{opacity:0}42%,68%{opacity:.5}82%,100%{opacity:0}}
+@keyframes drawdemo{0%,32%{stroke-dashoffset:100;opacity:1}46%,70%{stroke-dashoffset:0;opacity:1}86%{stroke-dashoffset:0;opacity:0}100%{stroke-dashoffset:100;opacity:0}}

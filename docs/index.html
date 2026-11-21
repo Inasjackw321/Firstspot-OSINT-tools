@@ -20,7 +20,7 @@
 
     <section id="tools" class="tools">
       <article class="card s2 reveal">
-        <div class="frame cyan"><img class="viz ship-img" src="img/ship.png" alt="Sentinel-2 view of a vessel with measured length 136 m"><i class="scan"></i><i class="ping" style="left:48%;top:50%"></i><span class="chip">TARGET · 136 m</span></div>
+        <div class="frame cyan"><div class="zoomer" style="--x:.5;--y:.48;--z:2.2"><img class="viz ship-img" src="img/ship.png" alt="Sentinel-2 view of a vessel with measured length 136 m"><svg class="hl" viewBox="0 0 100 75" aria-hidden="true"><path class="dim" fill-rule="evenodd" d="M0 0H100V75H0Z M37 24H63V49H37Z"/><rect class="draw" pathLength="100" x="37" y="24" width="26" height="25" rx="1"/></svg></div><i class="scan"></i><span class="chip">TARGET · 136 m</span></div>
         <div class="body">
           <span class="tag">Sentinel-2 · Optical</span>
           <h2>Sentinel 2 Ship Tracker</h2>
@@ -40,7 +40,7 @@
       </article>
 
       <article class="card s1 reveal">
-        <div class="frame amber"><img class="viz rfi-img" src="img/interference.webp" alt="Satellite view of a coastline with two interference bearing lines crossing"><i class="scan"></i><i class="ping" style="left:18.5%;top:68%"></i><span class="chip">SOURCE · FIX</span></div>
+        <div class="frame amber"><div class="zoomer" style="--x:.72;--y:.2;--z:2;--d:2.5s"><img class="viz rfi-img" src="img/interference.webp" alt="Satellite view of a coastline with two interference bearing lines crossing"><svg class="hl red" viewBox="0 0 100 75" aria-hidden="true"><path class="dim" fill-rule="evenodd" d="M0 0H100V75H0Z M72 15m-16 0a16 16 0 1 0 32 0a16 16 0 1 0 -32 0"/><circle class="draw" pathLength="100" cx="72" cy="15" r="16"/></svg></div><i class="scan"></i><span class="chip">AREA OF INTEREST</span></div>
         <div class="body">
           <span class="tag">Sentinel-1 · Radar</span>
           <h2>Sentinel 1 Interference Detector</h2>
