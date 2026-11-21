@@ -45,3 +45,9 @@
     c.addEventListener('pointerleave', () => { c.style.transform = ''; });
   });
 })();
+
+(() => {
+  const bar = document.querySelector('.progress');
+  const upd = () => { const m = document.documentElement.scrollHeight - innerHeight; bar.style.transform = `scaleX(${m > 0 ? scrollY / m : 0})`; };
+  addEventListener('scroll', upd, {passive: true}); upd();
+})();
