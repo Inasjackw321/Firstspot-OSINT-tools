@@ -7,7 +7,7 @@
   <meta name="description" content="Firstspot: open-source satellite OSINT tools built on Sentinel data.">
   <link rel="icon" type="image/png" sizes="64x64" href="img/favicon-64.png">
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
   <div class="glow" aria-hidden="true"></div>
@@ -45,7 +45,7 @@
       </article>
 
       <article class="card s1 reveal">
-        <div class="frame amber"><div class="zoomer" style="--x:.72;--y:.2;--z:2;--d:2.5s"><img class="viz rfi-img" src="img/interference.webp" alt="Satellite view of a coastline with two interference bearing lines crossing"><svg class="hl red" viewBox="0 0 100 75" aria-hidden="true"><path class="dim" fill-rule="evenodd" d="M0 0H100V75H0Z M72 15m-16 0a16 16 0 1 0 32 0a16 16 0 1 0 -32 0"/><circle class="draw" pathLength="100" cx="72" cy="15" r="16"/></svg></div><i class="scan"></i><span class="chip">AREA OF INTEREST</span></div>
+        <div class="frame amber slides"><div class="slide s-a"><img src="img/interference.webp" alt="Satellite view of a coastline with two interference bearing lines crossing"><svg class="hl red" viewBox="0 0 100 75" aria-hidden="true"><path class="dim" fill-rule="evenodd" d="M0 0H100V75H0Z M72 15m-16 0a16 16 0 1 0 32 0a16 16 0 1 0 -32 0"/><circle class="draw" pathLength="100" cx="72" cy="15" r="16"/></svg></div><div class="slide s-b"><div class="zm"><img src="img/fix-region.webp" alt="Regional map of Crimea with many interference bearing lines converging on one point"><i class="pin"></i></div></div><div class="slide s-c"><img src="img/fix-airfield.webp" alt="Close-up of an airfield with a red ellipse marking the likely interference source area"></div><i class="scan"></i><span class="chip c-a">BEARING LINES</span><span class="chip c-b">REGIONAL FIX</span><span class="chip c-c">SOURCE AREA</span></div>
         <div class="body">
           <span class="tag">Sentinel-1 · Radar</span>
           <h2>Sentinel 1 Interference Detector</h2>
@@ -69,6 +69,6 @@
 
   <footer>Prototype · Built on free Copernicus Sentinel data</footer>
   <div id="toast" role="status" aria-live="polite"></div>
-  <script src="script.js"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>

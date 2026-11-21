@@ -140,3 +140,40 @@ footer{color:var(--muted);font-size:.85rem;padding-top:60px;padding-bottom:48px}
 .features .reveal:nth-child(2){transition-delay:0s}
 .feat:nth-child(3n+2){transition-delay:.1s}.feat:nth-child(3n){transition-delay:.2s}
 footer{padding-top:80px}
+
+/* ---- interference slideshow: 18s loop, 3 slides ---- */
+.slides{aspect-ratio:4/3}
+.slide{position:absolute;inset:0;opacity:0;overflow:hidden}
+.slide img{width:100%;height:100%;object-fit:cover;display:block;transform-origin:0 0}
+.slide .hl{inset:0}
+.slide *{animation:none}
+.s-a{animation:fa 18s infinite}
+.s-b{animation:fb 18s infinite}
+.s-c{animation:fc 18s infinite}
+@keyframes fa{0%{opacity:1}30%{opacity:1}34%,96%{opacity:0}100%{opacity:1}}
+@keyframes fb{0%,30%{opacity:0}35%,63%{opacity:1}67%,100%{opacity:0}}
+@keyframes fc{0%,63%{opacity:0}68%,95%{opacity:1}99%,100%{opacity:0}}
+/* slide A: zoom to compound + red ring (img + overlay share transform via wrapper animation on .slide children) */
+.s-a img,.s-a .hl{animation:za 18s cubic-bezier(.6,0,.3,1) infinite}
+.s-a .hl{overflow:visible;transform-origin:0 0}
+@keyframes za{0%,3%{transform:translate(0,0) scale(1)}10%,27%{transform:translate(-94%,-2.5%) scale(2)}32%,100%{transform:translate(0,0) scale(1)}}
+.s-a .dim{opacity:0;animation:da 18s infinite}
+.s-a .draw{stroke-dashoffset:100;animation:ra 18s infinite}
+@keyframes da{0%,8%{opacity:0}12%,26%{opacity:.5}30%,100%{opacity:0}}
+@keyframes ra{0%,9%{stroke-dashoffset:100;opacity:1}15%,26%{stroke-dashoffset:0;opacity:1}30%{stroke-dashoffset:0;opacity:0}100%{stroke-dashoffset:100;opacity:0}}
+/* slide B: zoom into the convergence pin */
+.zm{position:absolute;inset:0;transform-origin:0 0}
+.zm img{width:100%;height:100%;object-fit:cover;display:block}
+.s-b .zm{animation:zb 18s cubic-bezier(.5,0,.3,1) infinite}
+@keyframes zb{0%,34%{transform:translate(0,0) scale(1)}52%,64%{transform:translate(-76.7%,-61.1%) scale(2.2)}68%,100%{transform:translate(0,0) scale(1)}}
+.pin{position:absolute;left:57.6%;top:50.5%;width:14px;height:14px;margin:-7px 0 0 -7px;border:2px solid #ff3b3b;border-radius:50%;opacity:0;animation:pinon 18s infinite}
+@keyframes pinon{0%,46%{opacity:0;transform:scale(3)}52%,64%{opacity:1;transform:scale(1)}68%,100%{opacity:0}}
+/* slide C: pull back from airfield */
+.s-c img{animation:zc 18s ease-out infinite;transform-origin:65% 55%}
+@keyframes zc{0%,66%{transform:scale(1.7)}84%,100%{transform:scale(1)}}
+/* chips */
+.chip{opacity:0;animation:none}
+.c-a{animation:ca 18s infinite}.c-b{animation:cb 18s infinite}.c-c{animation:cc 18s infinite}
+@keyframes ca{0%,2%{opacity:0}5%,30%{opacity:1}33%,100%{opacity:0}}
+@keyframes cb{0%,35%{opacity:0}38%,63%{opacity:1}66%,100%{opacity:0}}
+@keyframes cc{0%,68%{opacity:0}71%,96%{opacity:1}99%,100%{opacity:0}}
