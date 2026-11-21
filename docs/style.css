@@ -232,3 +232,10 @@ footer a:hover{border-color:#5fd8ff}
 @media (max-width:480px){.follow.sm span{display:none}.follow.sm{padding:10px 12px}}
 footer{position:relative;border-top:0}
 footer::before{content:"";position:absolute;top:0;left:24px;right:24px;height:1px;background:var(--line)}
+
+/* disclaimer */
+.disclaimer{max-width:912px;margin:90px auto 0;padding:22px 24px 22px 28px;position:relative;border:1px solid var(--line);border-radius:14px;background:#0c0d12cc;width:calc(100% - 48px)}
+.disclaimer::before{content:"";position:absolute;left:0;top:16px;bottom:16px;width:2px;border-radius:2px;background:linear-gradient(180deg,#5fd8ff,#ffb23e)}
+.dlabel{font:600 .7rem/1 ui-monospace,Menlo,monospace;letter-spacing:.2em;text-transform:uppercase;color:#ffc46b}
+.disclaimer p{margin-top:10px;color:var(--muted);font-size:.93rem;max-width:720px}
+footer{margin-top:50px}
