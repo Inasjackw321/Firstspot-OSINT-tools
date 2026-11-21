@@ -8,24 +8,17 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <canvas id="stars" aria-hidden="true"></canvas>
-
-  <header class="top">
-    <a class="brand" href="#"><span class="dot"></span>Firstspot</a>
-    <nav><a href="#tools">Tools</a><a href="#about">About</a></nav>
-  </header>
+  <header class="top"><a class="brand" href="#">Firstspot</a></header>
 
   <main>
     <section class="hero">
-      <p class="eyebrow">Satellite OSINT tools</p>
-      <h1>See it from <span class="grad">orbit</span>.</h1>
-      <p class="lead">Small, focused tools that turn free Sentinel satellite data into answers. Track ships, spot signal interference, and verify what's happening on the ground.</p>
-      <a class="scroll" href="#tools">Browse tools <span>↓</span></a>
+      <h1>Satellite OSINT tools.</h1>
+      <p class="lead">Small tools that turn free Sentinel data into answers.</p>
     </section>
 
     <section id="tools" class="tools">
       <article class="card s2">
-        <canvas class="viz" id="viz-ships" aria-hidden="true"></canvas>
+        <img class="viz ship-img" src="img/ship.png" alt="Sentinel-2 view of a vessel with measured length 136 m">
         <div class="body">
           <span class="tag">Sentinel-2 · Optical</span>
           <h2>Sentinel 2 Ship Tracker</h2>
@@ -45,7 +38,7 @@
       </article>
 
       <article class="card s1">
-        <canvas class="viz" id="viz-rfi" aria-hidden="true"></canvas>
+        <img class="viz rfi-img" src="img/interference.webp" alt="Satellite view of a coastline with two interference bearing lines crossing">
         <div class="body">
           <span class="tag">Sentinel-1 · Radar</span>
           <h2>Sentinel 1 Interference Detector</h2>
@@ -64,14 +57,9 @@
         </div>
       </article>
     </section>
-
-    <section id="about" class="about">
-      <h2>About</h2>
-      <p>Firstspot is a prototype collection of open-source OSINT tools. Downloads are placeholders for now. Nothing real is shipped yet, so the buttons just show off the animations.</p>
-    </section>
   </main>
 
-  <footer>© Firstspot · Built on free Copernicus Sentinel data</footer>
+  <footer>Prototype · Built on free Copernicus Sentinel data</footer>
   <div id="toast" role="status" aria-live="polite"></div>
   <script src="script.js"></script>
 </body>
