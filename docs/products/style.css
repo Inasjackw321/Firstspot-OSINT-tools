@@ -1,0 +1,88 @@
+:root{
+  --bg:#05070d; --panel:#0c111c; --line:#1b2437; --text:#e8ecf5; --muted:#8c97ad;
+  --cyan:#35e0ff; --blue:#4f7cff; --amber:#ffb23e; --pink:#ff4fa3;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;min-height:100vh}
+#stars{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+header,main,footer{position:relative;z-index:1}
+.top{display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto;padding:20px 24px}
+.brand{font-weight:700;letter-spacing:.04em;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:10px;font-size:1.15rem}
+.dot{width:12px;height:12px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 0 var(--cyan);animation:ping 2.4s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 12px transparent}100%{box-shadow:0 0 0 0 transparent}}
+nav a{color:var(--muted);text-decoration:none;margin-left:22px;transition:color .2s}
+nav a:hover{color:var(--text)}
+
+.hero{max-width:1100px;margin:0 auto;padding:90px 24px 70px}
+.eyebrow{color:var(--cyan);text-transform:uppercase;letter-spacing:.18em;font-size:.8rem}
+h1{font-size:clamp(2.6rem,8vw,5.2rem);line-height:1.05;margin:14px 0 18px;letter-spacing:-.02em}
+.grad{background:linear-gradient(90deg,var(--cyan),var(--blue),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:shift 6s linear infinite}
+@keyframes shift{to{background-position:200% 0}}
+.lead{max-width:560px;color:var(--muted);font-size:1.1rem}
+.scroll{display:inline-block;margin-top:28px;color:var(--text);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px}
+.scroll span{display:inline-block;animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(5px)}}
+
+.tools{max-width:1100px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:26px}
+.card{background:linear-gradient(180deg,var(--panel),#090d16);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s}
+.card:hover{transform:translateY(-6px)}
+.s2:hover{border-color:var(--cyan);box-shadow:0 14px 50px -20px var(--cyan)}
+.s1:hover{border-color:var(--amber);box-shadow:0 14px 50px -20px var(--amber)}
+.viz{display:block;width:100%;height:170px;border-bottom:1px solid var(--line)}
+.body{padding:24px}
+.tag{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:99px;border:1px solid currentColor}
+.s2 .tag{color:var(--cyan)} .s1 .tag{color:var(--amber)}
+.body h2{font-size:1.45rem;margin:14px 0 8px}
+.body p{color:var(--muted)}
+.body ul{margin:16px 0 24px;padding-left:0;list-style:none;font-size:.93rem}
+.body li{padding-left:22px;position:relative;margin:4px 0;color:#c4cce0}
+.body li::before{content:"›";position:absolute;left:6px;color:var(--muted)}
+
+/* shared button base */
+.dl{position:relative;overflow:hidden;width:100%;display:flex;align-items:center;justify-content:center;gap:12px;padding:15px 20px;border:0;border-radius:12px;color:#041018;font:600 1rem/1 inherit;font-family:inherit;cursor:pointer;isolation:isolate;transition:transform .15s,filter .2s}
+.dl:active{transform:scale(.97)}
+.dl .meta{font-weight:500;font-size:.72rem;opacity:.65;margin-left:auto}
+.dl .label{margin-right:auto;margin-left:4px}
+.dl:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.dl.busy{pointer-events:none}
+
+/* Ship tracker button: ocean fill + sailing boat */
+.dl-ship{background:linear-gradient(90deg,#35e0ff,#4f9bff)}
+.dl-ship .wave{position:absolute;inset:0;z-index:-1;background:#0a6c8a;transform:translateX(-100%);transition:transform .4s}
+.dl-ship:hover .wave{transform:translateX(-86%)}
+.dl-ship .boat{display:inline-block;font-size:1.25rem;transition:transform .6s cubic-bezier(.5,0,.2,1)}
+.dl-ship:hover .boat{animation:rock 1.2s ease-in-out infinite}
+@keyframes rock{50%{transform:translateY(-3px) rotate(8deg)}}
+.dl-ship.busy .wave{transition:transform 2.2s linear;transform:translateX(0);background:#0b8aa8}
+.dl-ship.busy .boat{animation:sail 2.2s linear forwards}
+@keyframes sail{to{transform:translateX(calc(var(--w,260px) - 70px))}}
+.dl-ship.done{background:#35d39a}
+
+/* Interference button: glitch noise + signal */
+.dl-rfi{background:linear-gradient(90deg,#ffb23e,#ff7a3e)}
+.dl-rfi .noise{position:absolute;inset:0;z-index:-1;opacity:0;background:repeating-linear-gradient(90deg,#0003 0 2px,transparent 2px 5px),repeating-linear-gradient(0deg,#fff3 0 1px,transparent 1px 4px);transition:opacity .2s}
+.dl-rfi:hover .noise{opacity:1;animation:static .25s steps(3) infinite}
+@keyframes static{33%{background-position:3px 0,0 2px}66%{background-position:-2px 0,0 -3px}}
+.dl-rfi .sig{width:42px;height:16px;fill:none;stroke:#2a1200;stroke-width:2;stroke-linejoin:round;stroke-dasharray:140;stroke-dashoffset:0}
+.dl-rfi:hover .sig{animation:glitch .35s steps(2) infinite}
+@keyframes glitch{0%{transform:translate(0)}25%{transform:translate(2px,-1px) skewX(14deg)}50%{transform:translate(-2px,1px)}75%{transform:translate(1px,0) skewX(-14deg)}}
+.dl-rfi.busy{animation:shake .12s linear infinite}
+.dl-rfi.busy .noise{opacity:1;animation:static .12s steps(3) infinite}
+.dl-rfi.busy .sig{animation:draw 2.2s linear forwards}
+@keyframes draw{from{stroke-dashoffset:140}to{stroke-dashoffset:0}}
+@keyframes shake{25%{transform:translate(1px,0)}75%{transform:translate(-1px,0)}}
+.dl-rfi.done{background:#35d39a;animation:none}
+.dl-rfi.done .noise{opacity:0;animation:none}
+
+.about{max-width:700px;margin:90px auto 60px;padding:0 24px;text-align:center}
+.about h2{margin-bottom:10px}
+.about p{color:var(--muted)}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:30px 24px 50px;border-top:1px solid var(--line);max-width:1100px;margin:0 auto}
+
+#toast{position:fixed;left:50%;bottom:28px;z-index:10;transform:translate(-50%,40px);opacity:0;background:#121a2b;border:1px solid var(--line);padding:12px 18px;border-radius:12px;font-size:.92rem;transition:.35s;pointer-events:none;max-width:90vw;text-align:center}
+#toast.show{transform:translate(-50%,0);opacity:1}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+}

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Firstspot</title>
+  <meta name="description" content="Firstspot: open-source satellite OSINT tools built on Sentinel data.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+
+  <header class="top">
+    <a class="brand" href="#"><span class="dot"></span>Firstspot</a>
+    <nav><a href="#tools">Tools</a><a href="#about">About</a></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Satellite OSINT tools</p>
+      <h1>See it from <span class="grad">orbit</span>.</h1>
+      <p class="lead">Small, focused tools that turn free Sentinel satellite data into answers. Track ships, spot signal interference, and verify what's happening on the ground.</p>
+      <a class="scroll" href="#tools">Browse tools <span>↓</span></a>
+    </section>
+
+    <section id="tools" class="tools">
+      <article class="card s2">
+        <canvas class="viz" id="viz-ships" aria-hidden="true"></canvas>
+        <div class="body">
+          <span class="tag">Sentinel-2 · Optical</span>
+          <h2>Sentinel 2 Ship Tracker</h2>
+          <p>Scans Sentinel-2 imagery over a region you pick, detects vessels, and follows them across passes so you can see where they came from and where they're heading.</p>
+          <ul>
+            <li>Ship detection on 10 m optical imagery</li>
+            <li>Track vessels across repeat passes</li>
+            <li>Export positions as GeoJSON / CSV</li>
+          </ul>
+          <button class="dl dl-ship" data-name="Sentinel 2 Ship Tracker" type="button">
+            <span class="wave" aria-hidden="true"></span>
+            <span class="boat" aria-hidden="true">⛴</span>
+            <span class="label">Download</span>
+            <span class="meta">v0.1 prototype</span>
+          </button>
+        </div>
+      </article>
+
+      <article class="card s1">
+        <canvas class="viz" id="viz-rfi" aria-hidden="true"></canvas>
+        <div class="body">
+          <span class="tag">Sentinel-1 · Radar</span>
+          <h2>Sentinel 1 Interference Detector</h2>
+          <p>Looks for radio-frequency interference in Sentinel-1 radar scenes, the streaks and bursts that can point to powerful emitters, jammers, or ground radar.</p>
+          <ul>
+            <li>Flags RFI streaks in SAR scenes</li>
+            <li>Maps likely emitter areas</li>
+            <li>Works through cloud and at night</li>
+          </ul>
+          <button class="dl dl-rfi" data-name="Sentinel 1 Interference Detector" type="button">
+            <span class="noise" aria-hidden="true"></span>
+            <svg class="sig" viewBox="0 0 60 20" aria-hidden="true"><polyline points="0,10 8,10 11,2 14,18 17,10 26,10 29,4 32,16 35,10 60,10"/></svg>
+            <span class="label">Download</span>
+            <span class="meta">v0.1 prototype</span>
+          </button>
+        </div>
+      </article>
+    </section>
+
+    <section id="about" class="about">
+      <h2>About</h2>
+      <p>Firstspot is a prototype collection of open-source OSINT tools. Downloads are placeholders for now. Nothing real is shipped yet, so the buttons just show off the animations.</p>
+    </section>
+  </main>
+
+  <footer>© Firstspot · Built on free Copernicus Sentinel data</footer>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
