@@ -2,13 +2,13 @@ name: Deploy site
 
 on:
   push:
-    branches: [main]
+    branches: [claude/affectionate-archimedes-h3ghup]
     paths: ["docs/**", "extension/**", ".github/workflows/pages.yml"]
   workflow_dispatch:
   workflow_run:
     workflows: ["Scrape X trending"]
     types: [completed]
-    branches: [main]
+    branches: [claude/affectionate-archimedes-h3ghup]
 
 permissions:
   contents: read
@@ -28,7 +28,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: claude/affectionate-archimedes-h3ghup
 
       - name: Build site
         run: |
